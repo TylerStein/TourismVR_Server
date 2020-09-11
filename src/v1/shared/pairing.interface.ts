@@ -28,3 +28,27 @@ export class PairSession implements IPairSession {
         );
     }
 }
+
+export interface IPlaybackSession {
+    fileId: number;
+    playbackToken: string;
+    sessionToken: string;
+}
+
+export class PlaybackSession implements IPlaybackSession {
+    constructor(
+        public fileId: number,
+        public playbackToken: string,
+        public sessionToken: string,
+    ) {
+        //
+    }
+
+    static from(data: Partial<IPlaybackSession>): PlaybackSession {
+        return new PlaybackSession(
+            data.fileId || null,
+            data.playbackToken || null,
+            data.sessionToken || null,
+        );
+    }
+}
