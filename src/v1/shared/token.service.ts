@@ -3,7 +3,7 @@ import { Injectable } from "@nestjs/common";
 @Injectable()
 export class TokenService {
     readonly tokenCharacters: string = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-    readonly tokenLength: number = 8;
+    readonly tokenLength: number = 3;
 
     private _tokens: string[] = [];
 

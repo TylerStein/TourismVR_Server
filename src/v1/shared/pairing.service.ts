@@ -46,4 +46,20 @@ export class PairingService {
 
         return this._sessions.get(token);
     }
+
+    getPairSessionFromController(controllerSocket: WebSocket): PairSession {
+        for (let val of this._sessions.values()) {
+            if (val.controllerSocket == controllerSocket) return val;
+        }
+
+        return null;
+    }
+
+    getPairSessionFromPlayer(webSocket: WebSocket): PairSession {
+        for (let val of this._sessions.values()) {
+            if (val.playerSocket == webSocket) return val;
+        }
+
+        return null;
+    }
 }

@@ -20,6 +20,14 @@ export class PairSession implements IPairSession {
         return this.playerSocket != null && this.controllerSocket != null;
     }
 
+    public removePlayerSocket() {
+        this.playerSocket = null;
+    }
+
+    public removeControllerSocket() {
+        this.controllerSocket = null;
+    }
+
     static from(data: Partial<IPairSession>): PairSession {
         return new PairSession(
             data.playerSocket || null,
